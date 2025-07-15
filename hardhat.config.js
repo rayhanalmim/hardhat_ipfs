@@ -1,6 +1,10 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 
+if (!process.env.SEPOLIA_RPC_URL || !process.env.PRIVATE_KEY) {
+  throw new Error("Missing env vars: SEPOLIA_RPC_URL or PRIVATE_KEY");
+}
+
 module.exports = {
   solidity: "0.8.20",
   networks: {
